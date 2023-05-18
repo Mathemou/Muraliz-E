@@ -14,6 +14,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+  <!-- Campo para preencher com o nome -->
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -27,6 +28,8 @@
         android:hint="@string/nome_completo"
         android:inputType="textPersonName" />
   </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
+  <!-- Campo para preencher com o número de telefone -->
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -40,6 +43,8 @@
         android:hint="@string/n_mero_de_telefone"
         android:inputType="phone" />
   </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
+  <!-- Campo para preencher com o e-mail -->
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -53,6 +58,42 @@
         android:hint="@string/e_mail"
         android:inputType="textEmailAddress" />
   </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
+  <!-- Campo para selecionar a universidade -->
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_universidade_activity_cadastro"
+      style="@style/AutoCompleteTextView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/universidade">
+
+    <AutoCompleteTextView
+        android:id="@+id/ins_universidade_activity_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:inputType="textPersonName"
+        />
+  </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
+  <!-- Campo para selecionar o curso -->
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_curso_activity_cadastro"
+      style="@style/AutoCompleteTextView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/curso">
+
+    <AutoCompleteTextView
+        android:id="@+id/ins_curso_activity_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:inputType="textPersonName"
+        />
+  </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
+  <!-- Campo para preencher com o número de matrícula -->
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -66,7 +107,9 @@
         android:hint="@string/n_mero_de_matricula"
         android:inputType="textPersonName" />
   </com.google.android.material.textfield.TextInputLayout>
-<com.google.android.material.textfield.TextInputLayout
+  <!--***************************************************-->
+  <!-- Campo para preencher com o apelido/nome de usuário -->
+  <com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -79,6 +122,8 @@
       android:hint="@string/nome_de_usuario"
       android:inputType="textPersonName" />
 </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
+  <!-- Campo para preencher com a senha -->
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -92,6 +137,7 @@
         android:hint="@string/senha"
         android:inputType="textPassword" />
   </com.google.android.material.textfield.TextInputLayout>
+  <!--***************************************************-->
 </LinearLayout>
 
   </ScrollView>
