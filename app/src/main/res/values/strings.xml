@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Muraliz-E</string>
+    <string name="nome_de_usuario">Nome de usuário</string>
+    <string name="senha">Senha</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="e_mail">E-mail</string>
+    <string name="n_mero_de_matricula">Número de matricula</string>
+    <string name="n_mero_de_telefone">Número de telefone</string>
+    <string name="universidade">Universidade</string>
+    <string name="curso">Curso</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="login">Login</string>
+    <string name="ainda_n_o_possui_uma_conta_cadastre_se">Ainda não possui uma conta? <b>Cadastre-se</b></string>
 </resources>
