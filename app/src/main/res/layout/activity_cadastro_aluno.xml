@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroAluno">
+    tools:context=".Views.CadastroAluno">
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -88,6 +88,13 @@
         android:autofillHints=""
         android:inputType="textPersonName"
         />
+
+    <Button
+        android:id="@+id/btn_buscar_universidade_activity_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buscar"
+        android:layout_gravity="center"/>
   </com.google.android.material.textfield.TextInputLayout>
   <!--***************************************************-->
   <!-- Campo para selecionar o curso -->
@@ -97,7 +104,9 @@
       android:layout_marginBottom="@dimen/espaco_campos"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:hint="@string/curso">
+      android:hint="@string/curso"
+      android:visibility="gone"
+      >
 
     <AutoCompleteTextView
         android:id="@+id/ins_curso_activity_cadastro"
@@ -105,6 +114,7 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:inputType="textPersonName"
+
         />
   </com.google.android.material.textfield.TextInputLayout>
   <!--***************************************************-->

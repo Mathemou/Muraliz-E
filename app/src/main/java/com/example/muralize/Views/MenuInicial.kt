@@ -1,4 +1,4 @@
-package com.example.muralize
+package com.example.muralize.Views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +16,7 @@ class MenuInicial : AppCompatActivity() {
         binding = ActivityMenuInicialBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buttonAcaoTest.setOnClickListener {
-            PopUpMethods.toastLong(this, "Botão acionado!")
+            PopUpMethods.toastLong(this, "Não implementado!")
         }
     }
 }

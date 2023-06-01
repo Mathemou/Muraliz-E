@@ -1,9 +1,8 @@
-package com.example.muralize
+package com.example.muralize.Views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
 import com.example.muralize.Utils.CheckMethods
 import com.example.muralize.Utils.PopUpMethods
 import com.example.muralize.databinding.ActivityLoginBinding
@@ -23,7 +22,7 @@ private  lateinit var binding: ActivityLoginBinding
             if(CheckMethods.naoVazio(nomeDeUsuario)&&CheckMethods.naoVazio(senhaDoUsuario)) {
                 checaUsuario(nomeDeUsuario, senhaDoUsuario)
             } else {
-                PopUpMethods.toastLong(this, "Nenhum campo pode estar vazio")
+                PopUpMethods.SnackbarLong(it, "Preencha todos os campos!")
             }
         }
         binding.btnCadastroActivityLogin.setOnClickListener{
@@ -32,7 +31,6 @@ private  lateinit var binding: ActivityLoginBinding
     }
 
     private fun checaUsuario(nomeDeUsuario: String, senhaDoUsuario: String) {
-        PopUpMethods.toastLong(this, "${nomeDeUsuario} e ${senhaDoUsuario} possíveis de entrar...")
         // Aqui deve ocorrer a verificação
         val intent = Intent(this, MenuInicial::class.java)
         startActivity(intent)

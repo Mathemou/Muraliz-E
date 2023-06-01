@@ -14,19 +14,19 @@
         android:theme="@style/Theme.MuralizE"
         tools:targetApi="31">
         <activity
-            android:name=".MenuInicial"
+            android:name=".Views.MenuInicial"
             android:exported="false" />
         <activity
-            android:name=".CadastroAluno"
+            android:name=".Views.CadastroAluno"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Views.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Views.Login"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MuralizENoActionBar"
