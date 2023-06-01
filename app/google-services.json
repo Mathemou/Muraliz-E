@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "508688244536",
+    "project_id": "muralize-c2ab4",
+    "storage_bucket": "muralize-c2ab4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508688244536:android:38ecb3e1f07b6bca8babcd",
+        "android_client_info": {
+          "package_name": "com.example.muralize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508688244536-2e865pv1b26983ch1t9i06hm1p0gu743.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbiRpB5q8Tyz7htj7_GqmXdwU1OrFEMG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508688244536-2e865pv1b26983ch1t9i06hm1p0gu743.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

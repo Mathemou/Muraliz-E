@@ -33,6 +33,9 @@ private  lateinit var binding: ActivityLoginBinding
 
     private fun checaUsuario(nomeDeUsuario: String, senhaDoUsuario: String) {
         PopUpMethods.toastLong(this, "${nomeDeUsuario} e ${senhaDoUsuario} possíveis de entrar...")
+        // Aqui deve ocorrer a verificação
+        val intent = Intent(this, MenuInicial::class.java)
+        startActivity(intent)
     }
 
     private fun abreTelaCadastro(){
