@@ -29,7 +29,7 @@
             android:textSize="15sp" />
 
         <Button
-            android:id="@+id/btnAdicionar"
+            android:id="@+id/btnAdicionarCardDisciplina"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="+"

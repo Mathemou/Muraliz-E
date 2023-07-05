@@ -84,7 +84,7 @@ class SearchData {
                 }
         }
 
-        fun obterUniversidades(universidade: DocumentReference, callback : DisciplinasCallback) {
+        fun obterDisciplinas(universidade: DocumentReference, callback : DisciplinasCallback) {
             universidade
                 .collection(ConstantesFB.DISCIPLINAS)
                 .orderBy(ConstantesFB.NOME)
@@ -98,6 +98,35 @@ class SearchData {
                             disciplina.documento = document.reference
                         }
                         disciplinas.add(disciplina!!)
+                    }
+                    callback.onSuccess(disciplinas.toList())
+                }
+                .addOnFailureListener { error ->
+                    callback.onFailure(error.message.toString())
+                }
+        }
+
+        fun obterDisciplinasNaoCursadas(aluno : Usuario, callback : DisciplinasCallback) {
+            aluno.universidade!!
+                .collection(ConstantesFB.DISCIPLINAS)
+                .orderBy(ConstantesFB.NOME)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    val disciplinas = mutableListOf<Disciplina>()
+                    for (document in querySnapshot.documents) {
+                        // Aqui você pode criar objetos Universidade com os dados do documento
+                        val disciplina = document.toObject(Disciplina::class.java)
+                        if(disciplina != null){
+                                disciplina.documento = document.reference
+
+                        }
+                        if(aluno.disciplinas!=null) {
+                            if (!(aluno.disciplinas.contains(disciplina!!.documento))) {
+                                disciplinas.add(disciplina)
+                            }
+                        } else {
+                            disciplinas.add(disciplina!!)
+                        }
                     }
                     callback.onSuccess(disciplinas.toList())
                 }

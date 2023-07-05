@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.muralize.Classes.Curso
 import com.example.muralize.Classes.Disciplina
+import com.example.muralize.Classes.Usuario
 import com.example.muralize.Data.DisciplinasCallback
 import com.example.muralize.Data.SearchData
 import com.google.firebase.firestore.DocumentReference
@@ -22,7 +23,24 @@ class ObterDisciplinasViewModel(application : Application) : AndroidViewModel(ap
         if(_disciplinas.value != null){
             (_disciplinas.value as MutableList<*>).clear()
         }
-        SearchData.obterUniversidades(universidade, object : DisciplinasCallback {
+        SearchData.obterDisciplinas(universidade, object : DisciplinasCallback {
+            override fun onSuccess(disciplinas : List<Disciplina>) {
+                _disciplinas.value = disciplinas
+            }
+
+            override fun onFailure(message: String) {
+                _failureList.value = message
+            }
+
+        })
+    }
+
+    fun obterDisciplinasNaoCursadas(aluno : Usuario){
+        // Limpa a MutableLiveData caso ela já tenha algo antes da pesquisa
+        if(_disciplinas.value != null){
+            (_disciplinas.value as MutableList<*>).clear()
+        }
+        SearchData.obterDisciplinasNaoCursadas(aluno, object : DisciplinasCallback {
             override fun onSuccess(disciplinas : List<Disciplina>) {
                 _disciplinas.value = disciplinas
             }

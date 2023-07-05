@@ -3,11 +3,14 @@ package com.example.muralize.Data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
+import com.example.muralize.Classes.Disciplina
 import com.example.muralize.Constants.ConstantesFB
 import com.example.muralize.R
+import com.example.muralize.Utils.UtilMethods
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
@@ -36,7 +39,17 @@ class SaveData {
                     callback.onSuccess(true)
                 }.addOnFailureListener { error ->
                     callback.onFailure(context.getString(R.string.falha_ao_cadastrar_aluno))
-                    Log.e("ErrorUserSignup", error.message.toString())
+                }
+        }
+
+        fun registrarDisciplina(disciplina : DocumentReference, callback : CadastroDisciplinaCallback){
+            db.collection(ConstantesFB.ALUNOS)
+                .document(UtilMethods.getUidUser())
+                .update(ConstantesFB.DISCIPLINAS, FieldValue.arrayUnion(disciplina))
+                .addOnSuccessListener {
+                    callback.onSuccess(true)
+                }.addOnFailureListener { error ->
+                    callback.onFailure(error.message.toString())
                 }
         }
     }
