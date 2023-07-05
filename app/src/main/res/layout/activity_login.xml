@@ -25,6 +25,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="70sp"/>
             <!-- Campo para preencher com o apelido/nome de usuário -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_nickname_activity_login"
@@ -38,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
-                    android:hint="@string/nome_de_usuario"
+                    android:hint="@string/e_mail"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
             <!--***************************************************-->

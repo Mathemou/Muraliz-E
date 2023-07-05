@@ -14,4 +14,17 @@
     <string name="cadastre_se">Cadastre-se!</string>
     <string name="postar_no_mural">Postar no mural</string>
     <string name="buscar">Buscar</string>
+    <string name="falha_ao_cadastrar_aluno">Falha ao cadastrar aluno</string>
+    <string name="minhas_solicitacoes">Minhas solicitações</string>
+    <string name="adicionar_disciplinas">Adicionar disciplinas</string>
+    <string name="responder">Responder</string>
+    <string name="solicitacoes">Solicitações</string>
+    <string name="s_solicitacao">No momento, não há solitações para você</string>
+    <string name="falha_na_internet">Falha na internet</string>
+    <string name="falha_senha_invalida">Senha incorreta</string>
+    <string name="falha_email_n_cadastrado">E-mail não cadastrado</string>
+    <string name="failure_login">Falha ao logar</string>
+    <string name="bem_vindo">Bem-vindo,</string>
+    <string name="nome_da_disciplina">Nome da Disciplina</string>
+    <string name="cod_example">XXX-000</string>
 </resources>

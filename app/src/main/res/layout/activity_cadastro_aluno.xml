@@ -73,29 +73,38 @@
   </com.google.android.material.textfield.TextInputLayout>
   <!--***************************************************-->
   <!-- Campo para selecionar a universidade -->
-  <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/input_universidade_activity_cadastro"
-      style="@style/AutoCompleteTextView"
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_marginBottom="@dimen/espaco_campos"
       android:layout_height="wrap_content"
-      android:hint="@string/universidade">
+      android:layout_marginBottom="@dimen/espaco_campos"
+      android:orientation="horizontal">
 
-    <AutoCompleteTextView
-        android:id="@+id/ins_universidade_activity_cadastro"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_universidade_activity_cadastro"
+        style="@style/AutoCompleteTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:inputType="textPersonName"
-        />
+        android:layout_weight="1"
+        android:layout_marginEnd="@dimen/espaco_campos"
+        android:hint="@string/universidade">
+
+      <AutoCompleteTextView
+          android:id="@+id/ins_universidade_activity_cadastro"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:autofillHints=""
+          android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_buscar_universidade_activity_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/buscar"
-        android:layout_gravity="center"/>
-  </com.google.android.material.textfield.TextInputLayout>
+        android:layout_gravity="center" />
+
+  </LinearLayout>
   <!--***************************************************-->
   <!-- Campo para selecionar o curso -->
   <com.google.android.material.textfield.TextInputLayout
@@ -117,38 +126,6 @@
 
         />
   </com.google.android.material.textfield.TextInputLayout>
-  <!--***************************************************-->
-  <!-- Campo para preencher com o número de matrícula -->
-  <com.google.android.material.textfield.TextInputLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="@dimen/espaco_campos"
-      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-      android:id="@+id/input_numero_de_matricula_activity_cadastro">
-    <EditText
-        android:id="@+id/ins_numero_de_matricula_activity_cadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/n_mero_de_matricula"
-        android:inputType="textPersonName" />
-  </com.google.android.material.textfield.TextInputLayout>
-  <!--***************************************************-->
-  <!-- Campo para preencher com o apelido/nome de usuário -->
-  <com.google.android.material.textfield.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-      android:layout_marginBottom="@dimen/espaco_campos"
-      android:id="@+id/input_nickname_activity_cadastro">
-  <EditText
-      android:id="@+id/ins_nickname_activity_cadastro"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:autofillHints=""
-      android:hint="@string/nome_de_usuario"
-      android:inputType="textPersonName" />
-</com.google.android.material.textfield.TextInputLayout>
   <!--***************************************************-->
   <!-- Campo para preencher com a senha -->
   <com.google.android.material.textfield.TextInputLayout

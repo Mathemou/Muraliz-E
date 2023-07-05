@@ -1,3 +1,9 @@
 package com.example.muralize.Classes
 
-data class Curso()
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
+
+data class Curso(
+    val nome : String = "",
+    var documento : DocumentReference? = null
+)
