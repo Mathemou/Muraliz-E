@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarSolicitacao">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            >
+
+            <!-- Campo para selecionar o a disciplina -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_disciplina_activity_registrar_solicitacao"
+                style="@style/AutoCompleteTextView"
+                android:layout_marginBottom="@dimen/espaco_campos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/disciplina"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/ins_disciplina_activity_registrar_solicitacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="textPersonName"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--***************************************************-->
+            <!-- Campo para preencher com a descrição -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="@dimen/espaco_campos"
+                android:id="@+id/input_descricao_activity_registrar_solicitacao">
+                <EditText
+                    android:id="@+id/ins_descricao_activity_registrar_solicitacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints=""
+                    android:hint="@string/descricao"
+                    android:inputType="text"
+                    android:gravity="start"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--***************************************************-->
+
+            <!-- Botão para postar/registrar uma solicitação -->
+            <Button
+                android:id="@+id/btn_cadastrar_activity_cadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/solicitar" />
+        </LinearLayout>
+        <!--***************************************************-->
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

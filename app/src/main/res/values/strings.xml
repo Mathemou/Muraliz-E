@@ -27,4 +27,7 @@
     <string name="bem_vindo">Bem-vindo,</string>
     <string name="nome_da_disciplina">Nome da Disciplina</string>
     <string name="cod_example">XXX-000</string>
+    <string name="solicitar">Postar</string>
+    <string name="disciplina">Disciplina</string>
+    <string name="descricao">Descrição</string>
 </resources>
