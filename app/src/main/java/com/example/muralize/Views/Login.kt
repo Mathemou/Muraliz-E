@@ -23,6 +23,7 @@ private lateinit var mLoginViewModel: LoginViewModel
         setContentView(binding.root)
         mLoginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         observer()
+
         binding.btnLoginActivityLogin.setOnClickListener {
             val emailDoUsuario : String = binding.insNicknameActivityLogin.text.toString()
             val senhaDoUsuario : String = binding.insSenhaActivityLogin.text.toString()

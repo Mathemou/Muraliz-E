@@ -14,7 +14,10 @@
         android:theme="@style/Theme.MuralizE"
         tools:targetApi="31">
         <activity
-            android:name="RegistrarSolicitacao"
+            android:name=".Views.SolicitacaoExpandida"
+            android:exported="false" />
+        <activity
+            android:name=".Views.RegistrarSolicitacao"
             android:exported="false" />
         <activity
             android:name=".Views.ListaDisciplinas"

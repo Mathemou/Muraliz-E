@@ -104,5 +104,11 @@ class CadastroAluno : AppCompatActivity() {
         mCursosViewModel.failureList.observe(this){
             PopUpMethods.toastLong(this, "Falha ao obter cursos da universidade ${binding.insUniversidadeActivityCadastro.text.toString()}")
         }
+        mCadastroAlunosViewModel.userRegistration.observe(this){
+            if(it){
+                PopUpMethods.toastLong(this, "Sucesso ao cadastrar!")
+                super.onBackPressed()
+            }
+        }
     }
 }

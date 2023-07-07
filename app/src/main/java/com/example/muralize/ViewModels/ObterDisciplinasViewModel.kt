@@ -35,6 +35,22 @@ class ObterDisciplinasViewModel(application : Application) : AndroidViewModel(ap
         })
     }
 
+    fun obterDisciplinasCursadas(aluno : Usuario){
+        if(_disciplinas.value != null){
+            (_disciplinas.value as MutableList<*>).clear()
+        }
+        SearchData.obterDisciplinasCursadas(aluno, object : DisciplinasCallback {
+            override fun onSuccess(disciplinas: List<Disciplina>) {
+                _disciplinas.value = disciplinas
+            }
+
+            override fun onFailure(message: String) {
+                _failureList.value = message
+            }
+
+        })
+    }
+
     fun obterDisciplinasNaoCursadas(aluno : Usuario){
         // Limpa a MutableLiveData caso ela já tenha algo antes da pesquisa
         if(_disciplinas.value != null){

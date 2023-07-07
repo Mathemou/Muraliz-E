@@ -24,13 +24,13 @@ class ListaDisciplinas : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista_disciplinas)
         binding = ActivityListaDisciplinasBinding.inflate(layoutInflater)
         mObterDadosUsuarioViewModel = ViewModelProvider(this)[ObterDadosUsuarioViewModel::class.java]
         mDisciplinasViewModel = ViewModelProvider(this)[ObterDisciplinasViewModel::class.java]
         mAdicionarDisciplinasViewModel = ViewModelProvider(this)[AdicionarDisciplinasViewModel::class.java]
         observe()
         mObterDadosUsuarioViewModel.obterUsuarioLogado()
+        setContentView(binding.root)
     }
 
 
