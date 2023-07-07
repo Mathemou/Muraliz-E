@@ -28,14 +28,24 @@ class SplashScreen : AppCompatActivity() {
         }, 2500)
     }
 
+    override fun onResume() {
+        super.onResume()
+        Handler().postDelayed({
+            // Código a ser executado após o atraso
+            checkCurrentUser()
+        }, 2500)
+    }
+
     private fun checkCurrentUser() {
         // Checa se o usuário já está logado
         val currentUser = Firebase.auth.currentUser
 
         if (currentUser != null) {
+            finish()
             val intent =Intent(this, MenuInicial::class.java)
             startActivity(intent)
         } else {
+            finish()
             sessionManager.salvarNomeUsuario(null)
             sessionManager.salvarEmailPerfil(null)
             sessionManager.salvarTelefone(null)

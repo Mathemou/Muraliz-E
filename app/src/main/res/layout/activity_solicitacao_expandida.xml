@@ -5,5 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Views.SolicitacaoExpandida">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+    <TextView
+        android:id="@+id/nome_aluno_solicitacao_expandida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="104dp"
+        android:layout_margin="10dp"/>
 
+    <TextView
+        android:id="@+id/descricao_solicitacao_expandida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="151dp"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/telefone_solicitacao_expandida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="213dp"
+        android:layout_margin="10dp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

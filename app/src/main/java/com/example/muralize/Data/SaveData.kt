@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import com.example.muralize.Classes.Disciplina
+import com.example.muralize.Classes.Solicitacao
+import com.example.muralize.Classes.Usuario
 import com.example.muralize.Constants.ConstantesFB
 import com.example.muralize.R
 import com.example.muralize.Utils.UtilMethods
+import com.example.muralize.Views.RegistrarSolicitacao
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
@@ -51,6 +54,24 @@ class SaveData {
                 }.addOnFailureListener { error ->
                     callback.onFailure(error.message.toString())
                 }
+        }
+
+        fun registrarSolicitacao(aluno : Usuario, solicitacao: Solicitacao, callback : RegistrarSolicitacaoCallback){
+            val dadosDaSolicitacao : HashMap<String, Any> = HashMap<String, Any>()
+            dadosDaSolicitacao["disciplina"] = solicitacao.disciplina!!
+            dadosDaSolicitacao["aluno"] = solicitacao.aluno!!
+            dadosDaSolicitacao["data"] = solicitacao.data!!
+            dadosDaSolicitacao["descricao"] = solicitacao.descricao
+            dadosDaSolicitacao["resolvida"] = false
+            aluno.universidade!!
+                .collection(ConstantesFB.SOLICITACOES)
+                .add(dadosDaSolicitacao)
+                .addOnSuccessListener {
+                    callback.onSuccess(true)
+                }.addOnFailureListener { error ->
+                    callback.onFailure(error.message.toString())
+                }
+
         }
     }
 }

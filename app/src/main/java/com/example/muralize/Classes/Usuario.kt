@@ -7,5 +7,6 @@ data class Usuario(
     val telefone : String = "",
     val universidade : DocumentReference? = null,
     val curso : DocumentReference? = null,
-    val disciplinas: List<DocumentReference>? = null
+    val disciplinas: List<DocumentReference> = emptyList(),
+    var documento : DocumentReference? = null
 )

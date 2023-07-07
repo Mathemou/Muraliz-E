@@ -1,14 +1,12 @@
 package com.example.muralize.Data
 
 import android.annotation.SuppressLint
-import com.example.muralize.Classes.Curso
-import com.example.muralize.Classes.Disciplina
-import com.example.muralize.Classes.Universidade
-import com.example.muralize.Classes.Usuario
+import com.example.muralize.Classes.*
 import com.example.muralize.Constants.ConstantesFB
 import com.example.muralize.Utils.UtilMethods
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 class SearchData {
     companion object{
@@ -75,6 +73,7 @@ class SearchData {
                 .addOnSuccessListener { result ->
                     if (result.exists()) {
                         val user = result.toObject(Usuario::class.java)!!
+                        user.documento = result.reference
                         callback.onSuccess(user)
                     } else {
                         callback.onFailure("FailureGetUser")
@@ -106,6 +105,35 @@ class SearchData {
                 }
         }
 
+        fun obterDisciplinasCursadas(aluno : Usuario, callback : DisciplinasCallback) {
+            aluno.universidade!!
+                .collection(ConstantesFB.DISCIPLINAS)
+                .orderBy(ConstantesFB.NOME)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    val disciplinas = mutableListOf<Disciplina>()
+                    for (document in querySnapshot.documents) {
+                        // Aqui você pode criar objetos Universidade com os dados do documento
+                        val disciplina = document.toObject(Disciplina::class.java)
+                        if(disciplina != null){
+                            disciplina.documento = document.reference
+
+                        }
+                        if(aluno.disciplinas!=null) {
+                            if ((aluno.disciplinas.contains(disciplina!!.documento))) {
+                                disciplinas.add(disciplina)
+                            }
+                        } else {
+                            disciplinas.add(disciplina!!)
+                        }
+                    }
+                    callback.onSuccess(disciplinas.toList())
+                }
+                .addOnFailureListener { error ->
+                    callback.onFailure(error.message.toString())
+                }
+        }
+
         fun obterDisciplinasNaoCursadas(aluno : Usuario, callback : DisciplinasCallback) {
             aluno.universidade!!
                 .collection(ConstantesFB.DISCIPLINAS)
@@ -120,17 +148,35 @@ class SearchData {
                                 disciplina.documento = document.reference
 
                         }
-                        if(aluno.disciplinas!=null) {
-                            if (!(aluno.disciplinas.contains(disciplina!!.documento))) {
-                                disciplinas.add(disciplina)
-                            }
-                        } else {
-                            disciplinas.add(disciplina!!)
+                        if (!(aluno.disciplinas.contains(disciplina!!.documento))) {
+                            disciplinas.add(disciplina)
                         }
                     }
                     callback.onSuccess(disciplinas.toList())
                 }
                 .addOnFailureListener { error ->
+                    callback.onFailure(error.message.toString())
+                }
+        }
+
+        fun obterSolicitacoes(universidade: DocumentReference, callback: SolicitacaoCallback){
+            universidade
+                .collection(ConstantesFB.SOLICITACOES)
+                .orderBy("data")
+                .get()
+                .addOnSuccessListener {
+                    val solicitacoes = mutableListOf<Solicitacao>()
+                    for(document in it.documents){
+                        val solicitacao = document.toObject(Solicitacao::class.java)
+                        if(solicitacao != null){
+                            solicitacao.documento = document.reference
+                            solicitacoes.add(solicitacao)
+
+                        }
+
+                    }
+                    callback.onSuccess(solicitacoes)
+                }.addOnFailureListener { error ->
                     callback.onFailure(error.message.toString())
                 }
         }

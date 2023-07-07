@@ -5,7 +5,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import com.example.muralize.Classes.Curso
+import com.example.muralize.Classes.Disciplina
 import com.example.muralize.Classes.Universidade
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -92,5 +94,21 @@ class UtilMethods {
             sessionManager.salvarEmailPerfil(null)
             sessionManager.salvarTelefone(null)
         }
+
+
+
+        fun getCurrentTimestamp(): Timestamp {
+            return Timestamp.now()
+        }
+
+        fun obterDisciplinaPorNome(nomeDisciplina: String, listaDeDisciplinas: List<Disciplina>): Disciplina? {
+            for (disciplina in listaDeDisciplinas) {
+                if (disciplina.nome == nomeDisciplina) {
+                    return disciplina
+                }
+            }
+            return null
+        }
+
     }
 }
