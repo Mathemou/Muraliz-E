@@ -121,7 +121,7 @@
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@android:drawable/checkbox_on_background"
+                                android:src="@android:drawable/ic_dialog_dialer"
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="8dp"/>
                             <TextView
@@ -155,7 +155,7 @@
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@android:drawable/ic_popup_reminder"
+                                android:src="@drawable/ic_baseline_remove_circle_24"
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="8dp"/>
                             <TextView
@@ -189,7 +189,7 @@
                             <androidx.appcompat.widget.AppCompatImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@android:drawable/ic_input_add"
+                                android:src="@drawable/ic_baseline_add_circle_24"
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="8dp"/>
                             <TextView
