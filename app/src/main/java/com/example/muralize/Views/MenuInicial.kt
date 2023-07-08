@@ -35,20 +35,23 @@ class MenuInicial : AppCompatActivity() {
         observe()
         mObterDadosUsuarioViewModel.obterUsuarioLogado()
 
-        binding.buttonPostar.setOnClickListener {
+        binding.buttonPostarNoMural.setOnClickListener {
             val intent = Intent(this, RegistrarSolicitacao::class.java)
             startActivity(intent)
         }
-        binding.buttonAdiconarDisciplinas.setOnClickListener {
+        binding.buttonAdicionarDisciplinas.setOnClickListener {
             val intent = Intent(this, ListaDisciplinas::class.java)
             startActivity(intent)
         }
-        binding.buttonResponder.setOnClickListener {
-            PopUpMethods.toastLong(this, "Não implementado!")
-        }
         binding.buttonMinhasSolicitacoes.setOnClickListener {
-            PopUpMethods.toastLong(this, "Não implementado!")
+            val intent = Intent(this, SolicitacoesDoUsuario::class.java)
+            startActivity(intent)
         }
+        binding.buttonRemoverDisciplinas.setOnClickListener {
+            val intent = Intent(this, RemoverDisciplina::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
@@ -62,6 +65,8 @@ class MenuInicial : AppCompatActivity() {
             mObterSolicitacoesViewModel.obterSolicitacoesCompativeis(usuario)
         }
         mObterSolicitacoesViewModel.solicitacoes.observe(this){ solicitacoes ->
+            binding.subTxtSolicitacoresRvMenuInicial.text = "Solicitacões compatíveis com sua(s) disciplina(s)"
+            binding.numeroDeSolicitacoes.text = solicitacoes.size.toString()
             binding.solicitacoesRv.adapter = SolicitacoesAdapter(solicitacoes.toMutableList())
             binding.solicitacoesRv.layoutManager = GridLayoutManager(this, 3)
         }

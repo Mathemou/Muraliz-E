@@ -4,36 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.RegistrarSolicitacao">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
+    tools:context=".Views.RegistrarSolicitacao"
+    android:background="@drawable/orange_gradient">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
             android:gravity="center"
-            >
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/preencha_a_solicitacao"
+                android:fontFamily="@f">
+
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                android:layout_marginVertical="10dp"/>
 
             <!-- Campo para selecionar o a disciplina -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_disciplina_activity_registrar_solicitacao"
                 style="@style/AutoCompleteTextView"
-                android:layout_marginBottom="@dimen/espaco_campos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/disciplina"
-                >
+                android:layout_marginBottom="@dimen/espaco_campos"
+                android:hint="@string/disciplina">
 
                 <AutoCompleteTextView
                     android:id="@+id/ins_disciplina_activity_registrar_solicitacao"
@@ -47,20 +63,20 @@
             <!--***************************************************-->
             <!-- Campo para preencher com a descrição -->
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_descricao_activity_registrar_solicitacao"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="@dimen/espaco_campos"
-                android:id="@+id/input_descricao_activity_registrar_solicitacao">
+                android:layout_marginBottom="@dimen/espaco_campos">
+
                 <EditText
                     android:id="@+id/ins_descricao_activity_registrar_solicitacao"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autofillHints=""
-                    android:hint="@string/descricao"
-                    android:inputType="text"
                     android:gravity="start"
-                    />
+                    android:hint="@string/descricao"
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
             <!--***************************************************-->
 
@@ -72,6 +88,7 @@
                 android:layout_gravity="center"
                 android:text="@string/solicitar" />
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
         <!--***************************************************-->
-    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

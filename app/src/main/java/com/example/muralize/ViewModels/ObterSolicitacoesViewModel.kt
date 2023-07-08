@@ -38,4 +38,26 @@ class ObterSolicitacoesViewModel(application : Application) : AndroidViewModel(a
 
         })
     }
+
+    fun obterSolicitacoesDoUsuario(aluno : Usuario){
+        if(_solicitacoes.value != null){
+            (_solicitacoes.value as MutableList<*>).clear()
+        }
+        SearchData.obterSolicitacoes(aluno.universidade!!, object : SolicitacaoCallback{
+            override fun onSuccess(solicitacoes: List<Solicitacao>) {
+                val solicitacoesDoUsuario = mutableListOf<Solicitacao>()
+                for(solicitacao in solicitacoes){
+                    if(solicitacao.aluno==aluno.documento && !solicitacao.resolvida){
+                        solicitacoesDoUsuario.add(solicitacao)
+                    }
+                }
+                _solicitacoes.value = solicitacoesDoUsuario
+            }
+
+            override fun onFailure(message: String) {
+                _failureList.value = message
+            }
+
+        })
+    }
 }

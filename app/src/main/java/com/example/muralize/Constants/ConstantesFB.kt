@@ -7,5 +7,6 @@ class ConstantesFB {
         const val ALUNOS = "alunos"
         const val DISCIPLINAS = "disciplinas"
         const val SOLICITACOES = "solicitacoes"
+        const val RESOLVIDA = "resolvida"
     }
 }

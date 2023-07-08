@@ -12,11 +12,11 @@
     <string name="login">Login</string>
     <string name="ainda_n_o_possui_uma_conta_cadastre_se">Ainda não possui uma conta?</string>
     <string name="cadastre_se">Cadastre-se!</string>
-    <string name="postar_no_mural">Postar no mural</string>
+    <string name="postar_no_mural">POSTAR NO MURAL</string>
     <string name="buscar">Buscar</string>
     <string name="falha_ao_cadastrar_aluno">Falha ao cadastrar aluno</string>
-    <string name="minhas_solicitacoes">Minhas solicitações</string>
-    <string name="adicionar_disciplinas">Adicionar disciplinas</string>
+    <string name="minhas_solicitacoes">MINHAS\nSOLICITAÇÕES</string>
+    <string name="adicionar_disciplinas">ADICIONAR DISCIPLINAS</string>
     <string name="responder">Responder</string>
     <string name="solicitacoes">Solicitações</string>
     <string name="s_solicitacao">No momento, não há solitações para você</string>
@@ -30,4 +30,7 @@
     <string name="solicitar">Postar</string>
     <string name="disciplina">Disciplina</string>
     <string name="descricao">Descrição</string>
+    <string name="resolvida">Resolvida</string>
+    <string name="remover_disciplinas">REMOVER\nDISCIPLINAS</string>
+    <string name="preencha_a_solicitacao">Preencha a disciplina e a descrição da sua solicitação</string>
 </resources>
