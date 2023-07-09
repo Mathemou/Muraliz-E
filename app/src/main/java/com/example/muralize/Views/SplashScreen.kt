@@ -26,6 +26,15 @@ class SplashScreen : AppCompatActivity() {
             // Código a ser executado após o atraso
             checkCurrentUser()
         }, 2500)
+        // Obtém as flags do sistema para a View do decorView
+        val decorView = window.decorView
+        val flags = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+
+// Define as flags do sistema na View do decorView
+        decorView.systemUiVisibility = flags
+
     }
 
     override fun onResume() {

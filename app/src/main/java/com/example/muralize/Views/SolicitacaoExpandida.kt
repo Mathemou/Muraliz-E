@@ -20,7 +20,7 @@ class SolicitacaoExpandida : AppCompatActivity() {
         val NomeDisciplina: String? = intent.getStringExtra("NomeDisciplina")
         val NomeAluno: String? = intent.getStringExtra("NomeAluno")
         val TelefoneAluno : String? = intent.getStringExtra("TelefoneAluno")
-
+        binding.nomeMateriaSolicitacaoExpandida.text = NomeDisciplina
         binding.nomeAlunoSolicitacaoExpandida.text = NomeAluno
         binding.descricaoSolicitacaoExpandida.text = DescricaoSolicitacao
         binding.telefoneSolicitacaoExpandida.text = TelefoneAluno

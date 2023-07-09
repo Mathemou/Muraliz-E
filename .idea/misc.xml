@@ -6,10 +6,12 @@
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.152" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/bg_gradient.xml" value="0.161" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/blue_gradient.xml" value="0.161" />
+        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/botao_cards_9.xml" value="0.152" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/button_round.xml" value="0.1885" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/custom_border_card.xml" value="0.116" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/fundo_card.xml" value="0.161" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/green_gradient.xml" value="0.1385" />
+        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/grey_gradient.xml" value="0.152" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.129" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.137" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/ic_baseline_remove_circle_24.xml" value="0.137" />
@@ -17,6 +19,8 @@
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/light_blue_gradient.xml" value="0.1385" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/orange_gradient.xml" value="0.161" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/paper.xml" value="0.161" />
+        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/red_gradient.xml" value="0.152" />
+        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/drawable/yellow_gradient.xml" value="0.152" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/font/roboto.xml" value="0.1984375" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/font/ubuntu_bold.xml" value="0.1984375" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/activity_cadastro_aluno.xml" value="0.22" />
@@ -27,10 +31,11 @@
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/activity_remover_disciplina.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/activity_solicitacao_expandida.xml" value="0.176" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/activity_solicitacoes_do_usuario.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/activity_splash_screen.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/activity_splash_screen.xml" value="0.176" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/disciplina_item.xml" value="0.33" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/solicitacao_item.xml" value="0.2" />
         <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/solicitacao_item_grande.xml" value="0.33" />
+        <entry key="..\:/Users/Matheus/Desktop/Muralize/Muraliz-E/app/src/main/res/layout/yellow_gradient.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>

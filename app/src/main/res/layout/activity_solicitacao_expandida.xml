@@ -20,22 +20,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:minWidth="300dp"
+            android:minWidth="370dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="16dp">
-
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/nome_materia_solicitacao_expandida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="169dp"
+                tools:layout_editor_absoluteY="104dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
             <TextView
                 android:id="@+id/nome_aluno_solicitacao_expandida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 tools:layout_editor_absoluteX="169dp"
-                tools:layout_editor_absoluteY="104dp" />
+                tools:layout_editor_absoluteY="104dp"
+                />
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black">
+                android:background="@color/light_gray">
 
             </View>
 
@@ -44,13 +60,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:text="TextView"
                 tools:layout_editor_absoluteX="169dp"
                 tools:layout_editor_absoluteY="151dp" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black">
+                android:background="@color/light_gray">
 
             </View>
 
@@ -61,7 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardCornerRadius="25dp"
-                android:background="@drawable/blue_gradient">
+                android:background="@drawable/blue_gradient"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,7 +97,6 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Button"
                         android:textColor="@color/white">
 
                     </TextView>
