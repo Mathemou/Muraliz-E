@@ -39,6 +39,7 @@ class CadastroAluno : AppCompatActivity() {
         mUniversidadesViewModel = ViewModelProvider(this)[ObterUniversidadesViewModel::class.java]
         mCursosViewModel = ViewModelProvider(this)[ObterCursosViewModel::class.java]
         mCadastroAlunosViewModel = ViewModelProvider(this)[CadastroAlunosViewModel::class.java]
+        binding.insTelefoneActivityCadastro.addTextChangedListener(UtilMethods.mask("(##)#####-####", binding.insTelefoneActivityCadastro))
         observe()
         mUniversidadesViewModel.obterUniversidades()
         auth = Firebase.auth
@@ -57,10 +58,12 @@ class CadastroAluno : AppCompatActivity() {
             val senha = binding.insSenhaActivityCadastro.text.toString()
             if(nome_completo.isEmpty() || numero_telefone.isEmpty() || email.isEmpty() || universidade.isEmpty() || curso.isEmpty() || senha.isEmpty()){
                 PopUpMethods.SnackbarLong(it, "Preencha todos os campos!")
-            } else {
+            } else if (numero_telefone.length < 11){
+                PopUpMethods.SnackbarLong(it, "Número de telefone inválido!")
+            }else {
                 val dadosAluno = HashMap<String, Any>()
                 dadosAluno["nome"] = binding.insNomeActivityCadastro.text.toString()
-                dadosAluno["telefone"] = binding.insTelefoneActivityCadastro.text.toString()
+                dadosAluno["telefone"] = UtilMethods.replaceChars(binding.insTelefoneActivityCadastro.text.toString())
                 dadosAluno["curso"] = UtilMethods.obterCursoPorNome(curso, listaDeCursos)!!.documento!!
                 dadosAluno["universidade"] = UtilMethods.obterUniversidadePorNome(universidade, listaDeUniversidades)!!.documento!!
                 mCadastroAlunosViewModel.cadastrar(email, senha, dadosAluno)

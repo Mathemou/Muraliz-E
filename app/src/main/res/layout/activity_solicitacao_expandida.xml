@@ -6,36 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".Views.SolicitacaoExpandida"
     android:background="@drawable/orange_gradient">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-    <TextView
-        android:id="@+id/nome_aluno_solicitacao_expandida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="104dp"
-        android:layout_margin="10dp"/>
 
-    <TextView
-        android:id="@+id/descricao_solicitacao_expandida"
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="151dp"
-        android:layout_margin="10dp"/>
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/telefone_solicitacao_expandida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="213dp"
-        android:layout_margin="10dp"/>
-    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="300dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/nome_aluno_solicitacao_expandida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                tools:layout_editor_absoluteX="169dp"
+                tools:layout_editor_absoluteY="104dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black">
+
+            </View>
+
+            <TextView
+                android:id="@+id/descricao_solicitacao_expandida"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="169dp"
+                tools:layout_editor_absoluteY="151dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black">
+
+            </View>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/buttonTelefoneSolicitacaoExpandida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="25dp"
+                android:background="@drawable/blue_gradient">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:background="@drawable/green_gradient"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_baseline_chat_24"
+                        android:layout_marginEnd="20dp"/>
+                    <TextView
+                        android:id="@+id/telefoneSolicitacaoExpandida"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Button"
+                        android:textColor="@color/white">
+
+                    </TextView>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

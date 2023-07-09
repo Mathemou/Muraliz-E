@@ -4,12 +4,17 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import com.example.muralize.Classes.Curso
 import com.example.muralize.Classes.Disciplina
 import com.example.muralize.Classes.Universidade
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UtilMethods {
     companion object{
@@ -109,6 +114,77 @@ class UtilMethods {
             }
             return null
         }
+
+        fun converterDataParaPortugues(dataString: String): String {
+            val formatoOriginal = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
+            val data = formatoOriginal.parse(dataString)
+
+            val formatoPortugues = SimpleDateFormat("EEE - dd/MM/yyyy - HH:mm:ss", Locale("pt", "BR"))
+            return formatoPortugues.format(data)
+        }
+
+         fun replaceChars(cpfFull: String): String {
+                return cpfFull.replace(".", "").replace("-", "")
+                    .replace("(", "").replace(")", "")
+                    .replace("/", "").replace(" ", "")
+                    .replace("*", "")
+            }
+
+
+            fun mask(mask: String, etCpf: EditText): TextWatcher {
+
+                val textWatcher: TextWatcher = object : TextWatcher {
+                    var isUpdating: Boolean = false
+                    var oldString: String = ""
+                    override fun beforeTextChanged(
+                        charSequence: CharSequence,
+                        i: Int,
+                        i1: Int,
+                        i2: Int
+                    ) {
+
+                    }
+
+                    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                        val str = replaceChars(s.toString())
+                        var cpfWithMask = ""
+
+                        if (count == 0)//is deleting
+                            isUpdating = true
+
+                        if (isUpdating) {
+                            oldString = str
+                            isUpdating = false
+                            return
+                        }
+
+                        var i = 0
+                        for (m: Char in mask.toCharArray()) {
+                            if (m != '#' && str.length > oldString.length) {
+                                cpfWithMask += m
+                                continue
+                            }
+                            try {
+                                cpfWithMask += str.get(i)
+                            } catch (e: Exception) {
+                                break
+                            }
+                            i++
+                        }
+
+                        isUpdating = true
+                        etCpf.setText(cpfWithMask)
+                        etCpf.setSelection(cpfWithMask.length)
+
+                    }
+
+                    override fun afterTextChanged(editable: Editable) {
+
+                    }
+                }
+
+                return textWatcher
+            }
 
     }
 }

@@ -74,7 +74,7 @@
                         android:layout_height="145dp"
                         android:layout_margin="5dp"
                         android:id="@+id/button_postar_no_mural"
-                        app:cardCornerRadius="10dp"
+                        app:cardCornerRadius="25dp"
                         app:cardElevation="0dp"
                         android:layout_gravity="center">
                         <LinearLayout
@@ -108,7 +108,7 @@
                         android:layout_height="145dp"
                         android:layout_margin="5dp"
                         android:id="@+id/button_minhas_solicitacoes"
-                        app:cardCornerRadius="10dp"
+                        app:cardCornerRadius="25dp"
                         app:cardElevation="0dp"
                         android:layout_gravity="center">
                         <LinearLayout
@@ -142,7 +142,7 @@
                         android:layout_height="145dp"
                         android:layout_margin="5dp"
                         android:id="@+id/button_remover_disciplinas"
-                        app:cardCornerRadius="10dp"
+                        app:cardCornerRadius="25dp"
                         app:cardElevation="0dp"
                         android:layout_gravity="center">
                         <LinearLayout
@@ -176,7 +176,7 @@
                         android:layout_height="145dp"
                         android:layout_margin="5dp"
                         android:id="@+id/button_adicionar_disciplinas"
-                        app:cardCornerRadius="10dp"
+                        app:cardCornerRadius="25dp"
                         app:cardElevation="0dp"
                         android:layout_gravity="center">
                         <LinearLayout

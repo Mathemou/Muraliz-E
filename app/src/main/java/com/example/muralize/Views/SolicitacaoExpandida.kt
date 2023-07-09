@@ -25,9 +25,8 @@ class SolicitacaoExpandida : AppCompatActivity() {
         binding.descricaoSolicitacaoExpandida.text = DescricaoSolicitacao
         binding.telefoneSolicitacaoExpandida.text = TelefoneAluno
 
-        binding.telefoneSolicitacaoExpandida.setOnClickListener{
-            PopUpMethods.toastLong(this, "Abrindo zap zap")
-            abrirChatWhatsApp(binding.telefoneSolicitacaoExpandida.text.toString())
+        binding.buttonTelefoneSolicitacaoExpandida.setOnClickListener{
+            abrirChatWhatsApp("+55" + binding.telefoneSolicitacaoExpandida.text.toString())
         }
         setContentView(binding.root)
 

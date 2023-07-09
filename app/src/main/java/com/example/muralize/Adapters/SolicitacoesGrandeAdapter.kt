@@ -14,6 +14,7 @@ import com.example.muralize.Classes.Solicitacao
 import com.example.muralize.Classes.Usuario
 import com.example.muralize.R
 import com.example.muralize.Utils.PopUpMethods
+import com.example.muralize.Utils.UtilMethods
 import com.example.muralize.ViewModels.ModificarSolicitacaoViewModel
 import com.example.muralize.Views.SolicitacaoExpandida
 
@@ -47,7 +48,7 @@ class SolicitacoesGrandeAdapter(val listaSolicitacoes: MutableList<Solicitacao>,
                 itemView.findViewById<TextView>(R.id.nome_disciplina_solicitacao_item_grande).text = disciplina!!.nome
                 itemView.findViewById<TextView>(R.id.codigo_disciplina_solicitacao_item_grande).text = disciplina.codigo
                 itemView.findViewById<TextView>(R.id.descricao_solicitacao_item_grande).text = solicitacao.descricao
-                itemView.findViewById<TextView>(R.id.data_solicitacao_item_grande).text = solicitacao.data!!.toDate().toString()
+                itemView.findViewById<TextView>(R.id.data_solicitacao_item_grande).text = UtilMethods.converterDataParaPortugues(solicitacao.data!!.toDate().toString())
                 itemView.findViewById<Button>(R.id.button_resolvido_solicitacao_item_grande).setOnClickListener{
                     val builder = AlertDialog.Builder(itemView.context)
                     builder.setTitle("Alerta")
