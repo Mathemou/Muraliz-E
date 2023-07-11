@@ -55,13 +55,18 @@ class MenuInicial : AppCompatActivity() {
 
     }
 
+    override fun onResume(){
+        super.onResume()
+        mObterDadosUsuarioViewModel.obterUsuarioLogado()
+    }
+
     @SuppressLint("SetTextI18n")
     private fun observe() {
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
             val primeiroNome = if (usuario.nome.contains(" ")) usuario.nome.split(" ")[0] else usuario.nome
             sessionManager.salvarNomeUsuario(usuario.nome)
             sessionManager.salvarTelefone(usuario.telefone)
-            binding.mensagemDeBoasVindas.text = binding.mensagemDeBoasVindas.text.toString() + " " + primeiroNome
+            binding.mensagemDeBoasVindas.text = "Bem-vindo, " + primeiroNome
             mObterSolicitacoesViewModel.obterSolicitacoesCompativeis(usuario)
         }
         mObterSolicitacoesViewModel.solicitacoes.observe(this){ solicitacoes ->

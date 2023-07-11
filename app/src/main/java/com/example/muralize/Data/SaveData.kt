@@ -40,7 +40,7 @@ class SaveData {
                 .set(data)
                 .addOnSuccessListener {
                     callback.onSuccess(true)
-                }.addOnFailureListener { error ->
+                }.addOnFailureListener {
                     callback.onFailure(context.getString(R.string.falha_ao_cadastrar_aluno))
                 }
         }

@@ -19,6 +19,14 @@ import com.example.muralize.ViewModels.ModificarSolicitacaoViewModel
 import com.example.muralize.Views.SolicitacaoExpandida
 
 class SolicitacoesGrandeAdapter(val listaSolicitacoes: MutableList<Solicitacao>, val mModificarSolicitacaoViewModel : ModificarSolicitacaoViewModel) : RecyclerView.Adapter<SolicitacoesGrandeAdapter.SolicitacoesGrandeViewHolder>() {
+
+    /**
+     * Cria uma nova instância de [SolicitacoesGrandeViewHolder] com base no tipo de visualização e no [ViewGroup] pai.
+     *
+     * @param parent O [ViewGroup] pai em que a nova visualização será inflada.
+     * @param viewType O tipo de visualização da nova instância de [SolicitacoesGrandeViewHolder].
+     * @return Uma nova instância de [SolicitacoesGrandeViewHolder] que representa um item da lista de solicitações.
+     */
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,21 +35,47 @@ class SolicitacoesGrandeAdapter(val listaSolicitacoes: MutableList<Solicitacao>,
         return SolicitacoesGrandeViewHolder(itemView)
     }
 
+    /**
+     * Associa os dados de uma solicitação específica ao [SolicitacoesGrandeViewHolder] fornecido.
+     *
+     * @param holder O [SolicitacoesGrandeViewHolder] que será associado aos dados da solicitação.
+     * @param position A posição da solicitação na lista de solicitações.
+     */
     override fun onBindViewHolder(holder: SolicitacoesGrandeViewHolder, position: Int) {
         val solicitacao = listaSolicitacoes[position]
         holder.bind(solicitacao)
     }
 
+    /**
+     * Retorna o número total de itens na lista de solicitações.
+     *
+     * @return O número de itens na lista de solicitações.
+     */
     override fun getItemCount(): Int {
         return listaSolicitacoes.size
     }
 
+    /**
+     * Remove uma solicitação da lista de solicitações na posição especificada.
+     *
+     * @param position A posição da solicitação a ser removida.
+     */
     fun removerSolicitacao(position: Int) {
         listaSolicitacoes.removeAt(position)
         notifyItemRemoved(position)
     }
 
+    /**
+     * Classe interna que representa um ViewHolder para exibir os itens da lista de solicitações em um layout maior.
+     *
+     * @param itemView A view raiz do item da solicitação.
+     */
     inner class SolicitacoesGrandeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        /**
+         * Associa os dados de uma solicitação ao layout maior do item da solicitação.
+         *
+         * @param solicitacao A solicitação a ser exibida.
+         */
         fun bind(solicitacao: Solicitacao) {
             solicitacao.disciplina!!.get().addOnSuccessListener {
                 val disciplina = it.toObject(Disciplina::class.java)

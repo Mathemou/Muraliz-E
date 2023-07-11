@@ -1,5 +1,8 @@
 package com.example.muralize.Constants
 
+/**
+ * Classe que contém constantes utilizadas para o Firebase.
+ */
 class ConstantesFB {
     companion object{
         const val NOME = "nome"

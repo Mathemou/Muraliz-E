@@ -119,12 +119,8 @@ class SearchData {
                             disciplina.documento = document.reference
 
                         }
-                        if(aluno.disciplinas!=null) {
-                            if ((aluno.disciplinas.contains(disciplina!!.documento))) {
-                                disciplinas.add(disciplina)
-                            }
-                        } else {
-                            disciplinas.add(disciplina!!)
+                        if ((aluno.disciplinas.contains(disciplina!!.documento))) {
+                            disciplinas.add(disciplina)
                         }
                     }
                     callback.onSuccess(disciplinas.toList())
