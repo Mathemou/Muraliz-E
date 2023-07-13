@@ -17,8 +17,11 @@ import com.example.muralize.ViewModels.ObterSolicitacoesViewModel
 import com.example.muralize.databinding.ActivityMenuInicialBinding
 import com.google.firebase.auth.FirebaseAuth
 
+/**
+ * Activity responsável por exibir o menu inicial do aplicativo, onde o usuário pode realizar diversas ações, como
+ * postar no mural, adicionar disciplinas, visualizar suas solicitações e remover disciplinas.
+ */
 class MenuInicial : AppCompatActivity() {
-    // binding para acessar os componentes
     private lateinit var binding : ActivityMenuInicialBinding
     private lateinit var sessionManager: SessionManager
     private lateinit var mObterDadosUsuarioViewModel : ObterDadosUsuarioViewModel
@@ -60,6 +63,9 @@ class MenuInicial : AppCompatActivity() {
         mObterDadosUsuarioViewModel.obterUsuarioLogado()
     }
 
+    /**
+     * Configura os observadores para atualizações relacionadas aos dados do usuário e às solicitações compatíveis.
+     */
     @SuppressLint("SetTextI18n")
     private fun observe() {
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
@@ -77,7 +83,10 @@ class MenuInicial : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Sobrescreve o comportamento do botão de voltar para exibir um diálogo de confirmação de logout.
+     * Se o usuário confirmar o logout, ele será deslogado e a atividade será finalizada.
+     */
     override fun onBackPressed() {
         val alertDialog = AlertDialog.Builder(this)
             .setTitle("Logout")

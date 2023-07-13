@@ -9,6 +9,11 @@ import com.example.muralize.Classes.Usuario
 import com.example.muralize.Data.SearchData
 import com.example.muralize.Data.SolicitacaoCallback
 
+/**
+ * ViewModel responsável por obter as solicitações relacionadas a um usuário.
+ *
+ * @param application A instância da aplicação.
+ */
 class ObterSolicitacoesViewModel(application : Application) : AndroidViewModel(application) {
     private var _solicitacoes = MutableLiveData<List<Solicitacao>>()
     val solicitacoes : MutableLiveData<List<Solicitacao>>
@@ -17,6 +22,11 @@ class ObterSolicitacoesViewModel(application : Application) : AndroidViewModel(a
     val failureList: MutableLiveData<String>
         get() = _failureList
 
+    /**
+     * Obtém as solicitações compatíveis com as disciplinas do aluno.
+     *
+     * @param aluno O objeto do aluno.
+     */
     fun obterSolicitacoesCompativeis(aluno : Usuario){
         if(_solicitacoes.value != null){
             (_solicitacoes.value as MutableList<*>).clear()
@@ -39,6 +49,11 @@ class ObterSolicitacoesViewModel(application : Application) : AndroidViewModel(a
         })
     }
 
+    /**
+     * Obtém as solicitações feitas pelo usuário.
+     *
+     * @param aluno O objeto do aluno.
+     */
     fun obterSolicitacoesDoUsuario(aluno : Usuario){
         if(_solicitacoes.value != null){
             (_solicitacoes.value as MutableList<*>).clear()

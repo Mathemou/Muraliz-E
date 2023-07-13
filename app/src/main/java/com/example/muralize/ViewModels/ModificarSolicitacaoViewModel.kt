@@ -9,12 +9,13 @@ import com.example.muralize.Data.ResolverSolicitacaoCallback
 import com.example.muralize.Data.UpdateData
 import com.google.firebase.firestore.FirebaseFirestore
 
+/**
+ * ViewModel responsável pela funcionalidade de modificação de solicitações.
+ *
+ * @param application A instância da aplicação.
+ */
 class ModificarSolicitacaoViewModel(application : Application) : AndroidViewModel(application)  {
-    @SuppressLint("StaticFieldLeak")
-    private val context = application.applicationContext
-    private val db = FirebaseFirestore.getInstance()
 
-    // Variáveis de observação da viewModel
     private var _modificarSolicitacao = MutableLiveData<Solicitacao>()
     val modificarSolicitacao: MutableLiveData<Solicitacao>
         get() = _modificarSolicitacao
@@ -23,6 +24,11 @@ class ModificarSolicitacaoViewModel(application : Application) : AndroidViewMode
     val failureModificarSolicitacao: MutableLiveData<String>
         get() = _failureModificarSolicitacao
 
+    /**
+     * Marca uma solicitação como resolvida.
+     *
+     * @param solicitacao A solicitação a ser marcada como resolvida.
+     */
     fun marcarComoResolvida(solicitacao : Solicitacao){
         UpdateData.resolverSolicitacao(solicitacao, object : ResolverSolicitacaoCallback{
             override fun onSuccess(solicitacao: Solicitacao) {

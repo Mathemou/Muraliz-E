@@ -16,6 +16,9 @@ import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * Classe que contém métodos utilitários para diversas funcionalidades.
+ */
 class UtilMethods {
     companion object{
         /**
@@ -100,12 +103,22 @@ class UtilMethods {
             sessionManager.salvarTelefone(null)
         }
 
-
-
+        /**
+         * Obtém o Timestamp atual.
+         *
+         * @return O Timestamp atual.
+         */
         fun getCurrentTimestamp(): Timestamp {
             return Timestamp.now()
         }
 
+        /**
+         * Retorna o objeto da Disciplina correspondente ao nome fornecido.
+         *
+         * @param nomeDisciplina O nome da disciplina a ser pesquisada.
+         * @param listaDeDisciplinas A lista de disciplinas na qual realizar a pesquisa.
+         * @return O objeto da Disciplina correspondente ao nome fornecido, ou null se não for encontrado.
+         */
         fun obterDisciplinaPorNome(nomeDisciplina: String, listaDeDisciplinas: List<Disciplina>): Disciplina? {
             for (disciplina in listaDeDisciplinas) {
                 if (disciplina.nome == nomeDisciplina) {
@@ -115,6 +128,12 @@ class UtilMethods {
             return null
         }
 
+        /**
+         * Converte uma data no formato original para o formato brasileiro.
+         *
+         * @param dataString A data no formato original.
+         * @return A data convertida para o formato brasileiro.
+         */
         fun converterDataParaPortugues(dataString: String): String {
             val formatoOriginal = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
             val data = formatoOriginal.parse(dataString)
@@ -123,6 +142,12 @@ class UtilMethods {
             return formatoPortugues.format(data)
         }
 
+        /**
+         * Substitui caracteres especiais em uma string.
+         *
+         * @param cpfFull A string a ser modificada.
+         * @return A string com os caracteres especiais substituídos.
+         */
          fun replaceChars(cpfFull: String): String {
                 return cpfFull.replace(".", "").replace("-", "")
                     .replace("(", "").replace(")", "")
@@ -130,7 +155,13 @@ class UtilMethods {
                     .replace("*", "")
             }
 
-
+        /**
+         * Cria uma máscara para um EditText com base em um padrão.
+         *
+         * @param mask O padrão da máscara.
+         * @param etCpf O EditText para aplicar a máscara.
+         * @return O TextWatcher criado para a máscara.
+         */
             fun mask(mask: String, etCpf: EditText): TextWatcher {
 
                 val textWatcher: TextWatcher = object : TextWatcher {

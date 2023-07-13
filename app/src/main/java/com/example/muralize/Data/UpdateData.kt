@@ -15,6 +15,13 @@ class UpdateData {
         @SuppressLint("StaticFieldLeak")
         private val db = FirebaseFirestore.getInstance()
         private val auth = Firebase.auth
+
+        /**
+         * Resolve uma solicitação, marcando-a como resolvida no banco de dados.
+         *
+         * @param solicitacao A solicitação a ser resolvida.
+         * @param callback O objeto ResolverSolicitacaoCallback para receber os resultados da operação.
+         */
         fun resolverSolicitacao(solicitacao : Solicitacao, callback: ResolverSolicitacaoCallback){
             solicitacao
                 .documento!!
@@ -27,6 +34,12 @@ class UpdateData {
                 }
         }
 
+        /**
+         * Remove uma disciplina associada a um aluno no banco de dados.
+         *
+         * @param disciplina A referência da disciplina a ser removida.
+         * @param callback O objeto RemoverDisciplinaCallback para receber os resultados da operação.
+         */
         fun removerDisciplina(disciplina : DocumentReference, callback: RemoverDisciplinaCallback){
             db.collection(ConstantesFB.ALUNOS)
                 .document(UtilMethods.getUidUser())

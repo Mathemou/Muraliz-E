@@ -17,6 +17,9 @@ import com.example.muralize.ViewModels.ObterDadosUsuarioViewModel
 import com.example.muralize.ViewModels.ObterSolicitacoesViewModel
 import com.example.muralize.databinding.ActivitySolicitacoesDoUsuarioBinding
 
+/**
+ * Classe responsável por exibir as solicitações do usuário logado.
+ */
 class SolicitacoesDoUsuario : AppCompatActivity() {
     private lateinit var binding : ActivitySolicitacoesDoUsuarioBinding
     private lateinit var mObterSolicitacoesViewModel: ObterSolicitacoesViewModel
@@ -34,6 +37,9 @@ class SolicitacoesDoUsuario : AppCompatActivity() {
         setContentView(binding.root)
     }
 
+    /**
+     * Configura os observadores para ações relacionadas às solicitações do usuário.
+     */
     private fun observe() {
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
             mObterSolicitacoesViewModel.obterSolicitacoesDoUsuario(usuario)

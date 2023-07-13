@@ -14,12 +14,16 @@ import com.example.muralize.Utils.UtilMethods
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
+/**
+ * ViewModel responsável por adicionar disciplinas.
+ *
+ * @param application A instância da aplicação.
+ */
 class AdicionarDisciplinasViewModel(application : Application) : AndroidViewModel(application) {
     @SuppressLint("StaticFieldLeak")
     private val context = application.applicationContext
     private val db = FirebaseFirestore.getInstance()
 
-    // Variáveis de observação da viewModel
     private var _cadastrarDisciplina = MutableLiveData<Disciplina>()
     val cadastrarDisciplina: MutableLiveData<Disciplina>
         get() = _cadastrarDisciplina
@@ -28,6 +32,11 @@ class AdicionarDisciplinasViewModel(application : Application) : AndroidViewMode
     val failureCadastrarDisciplina: MutableLiveData<String>
         get() = _failureCadastrarDisciplina
 
+    /**
+     * Cadastra uma disciplina.
+     *
+     * @param disciplina A disciplina a ser cadastrada.
+     */
     fun cadastrar(disciplina : Disciplina) {
         SaveData.registrarDisciplina(disciplina.documento!!, object : CadastroDisciplinaCallback {
             override fun onSuccess(result: Boolean) {

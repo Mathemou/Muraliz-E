@@ -13,6 +13,10 @@ import com.example.muralize.ViewModels.LoginViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+/**
+ * Activity de splash screen exibida durante o carregamento inicial do aplicativo.
+ * Verifica se o usuário está logado e redireciona para a tela adequada.
+ */
 class SplashScreen : AppCompatActivity() {
     private lateinit var mLoginViewModel : LoginViewModel
     private lateinit var sessionManager: SessionManager
@@ -45,6 +49,9 @@ class SplashScreen : AppCompatActivity() {
         }, 2500)
     }
 
+    /**
+     * Verifica se o usuário está logado e redireciona para a tela adequada.
+     */
     private fun checkCurrentUser() {
         // Checa se o usuário já está logado
         val currentUser = Firebase.auth.currentUser

@@ -11,6 +11,11 @@ import com.example.muralize.R
 import com.example.muralize.Utils.PopUpMethods
 import com.example.muralize.Utils.UtilMethods
 
+/**
+ * ViewModel responsável por obter os dados do usuário logado.
+ *
+ * @param application A instância da aplicação.
+ */
 class ObterDadosUsuarioViewModel(application : Application) : AndroidViewModel(application) {
     @SuppressLint("StaticFieldLeak")
     private val context = application.applicationContext
@@ -18,6 +23,9 @@ class ObterDadosUsuarioViewModel(application : Application) : AndroidViewModel(a
     val currentUser: MutableLiveData<Usuario>
         get() = _currentUser
 
+    /**
+     * Obtém os dados do usuário logado.
+     */
     fun obterUsuarioLogado() {
         if (UtilMethods.statusInternet(context)) {
             SearchData.obterUsuarioLogado(object : UsuarioCallback {

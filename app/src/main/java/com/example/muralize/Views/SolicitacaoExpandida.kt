@@ -11,6 +11,9 @@ import com.example.muralize.databinding.ActivityRegistrarSolicitacaoBinding
 import com.example.muralize.databinding.ActivitySolicitacaoExpandidaBinding
 import com.example.muralize.databinding.SolicitacaoItemBinding
 
+/**
+ * Classe responsável por exibir a tela de visualização expandida de uma solicitação.
+ */
 class SolicitacaoExpandida : AppCompatActivity() {
     private lateinit var binding: ActivitySolicitacaoExpandidaBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +35,11 @@ class SolicitacaoExpandida : AppCompatActivity() {
 
     }
 
+    /**
+     * Abre o aplicativo do WhatsApp para iniciar um chat com o número de telefone fornecido.
+     *
+     * @param numeroTelefone O número de telefone para o qual o chat será iniciado.
+     */
     fun abrirChatWhatsApp(numeroTelefone: String) {
         val uri = Uri.parse("https://api.whatsapp.com/send?phone=$numeroTelefone")
         val intent = Intent(Intent.ACTION_VIEW, uri)

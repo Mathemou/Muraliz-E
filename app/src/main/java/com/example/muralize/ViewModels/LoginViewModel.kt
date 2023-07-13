@@ -14,6 +14,11 @@ import com.example.muralize.Views.Login
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+/**
+ * ViewModel responsável pela funcionalidade de login.
+ *
+ * @param application A instância da aplicação.
+ */
 class LoginViewModel(application : Application) : AndroidViewModel(application) {
     @SuppressLint("StaticFieldLeak")
     private val context: Context = application.baseContext
@@ -34,6 +39,13 @@ class LoginViewModel(application : Application) : AndroidViewModel(application) 
     // cria a variável do authentication
     private val auth = Firebase.auth
 
+    /**
+     * Realiza o login do usuário usando o email e a senha fornecidos.
+     *
+     * @param email O email do usuário.
+     * @param password A senha do usuário.
+     * @param callback O callback para tratar o resultado do login.
+     */
     private fun login(email: String, password: String, callback: LoginCallback) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { result ->
             if (result.isSuccessful) {
@@ -44,6 +56,12 @@ class LoginViewModel(application : Application) : AndroidViewModel(application) 
         }
     }
 
+    /**
+     * Realiza o login do usuário.
+     *
+     * @param email O email do usuário.
+     * @param password A senha do usuário.
+     */
     fun loginUser(email: String, password: String) {
         if (UtilMethods.statusInternet(context)) {
             login(email, password, object : LoginCallback{
@@ -59,6 +77,12 @@ class LoginViewModel(application : Application) : AndroidViewModel(application) 
         }
     }
 
+    /**
+     * Retorna a mensagem de erro correspondente ao erro de login.
+     *
+     * @param message A mensagem de erro recebida.
+     * @return A mensagem de erro tratada.
+     */
     private fun returnMessageError(message: String) : String {
         if (message.contains("There is no user record corresponding to this identifier.")) {
             return context.getString(R.string.falha_email_n_cadastrado)

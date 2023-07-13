@@ -7,6 +7,11 @@ import com.example.muralize.Classes.Curso
 import com.example.muralize.Data.CursosCallback
 import com.example.muralize.Data.SearchData
 
+/**
+ * ViewModel responsável por obter os cursos de uma determinada universidade.
+ *
+ * @param application A instância da aplicação.
+ */
 class ObterCursosViewModel(application : Application) : AndroidViewModel(application)  {
     private var _cursos = MutableLiveData<List<Curso>>()
     val cursos : MutableLiveData<List<Curso>>

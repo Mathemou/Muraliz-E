@@ -13,6 +13,11 @@ class SearchData {
         @SuppressLint("StaticFieldLeak")
         private val db = FirebaseFirestore.getInstance()
 
+        /**
+         * Obtém a lista de universidades disponíveis.
+         *
+         * @param callback O objeto UniversidadeCallback para receber os resultados da operação.
+         */
         fun obterUniversidades(callback: UniversidadeCallback) {
             db.collection(ConstantesFB.UNIVERSIDADES)
                 .get()
@@ -33,7 +38,12 @@ class SearchData {
                 }
         }
 
-
+        /**
+         * Obtém a lista de cursos de uma universidade específica.
+         *
+         * @param nomeUniversidade O nome da universidade.
+         * @param callback O objeto CursosCallback para receber os resultados da operação.
+         */
         fun obterCursos(nomeUniversidade: String, callback: CursosCallback) {
             db.collection(ConstantesFB.UNIVERSIDADES)
                 .whereEqualTo("nome", nomeUniversidade)
@@ -65,6 +75,11 @@ class SearchData {
                 }
         }
 
+        /**
+         * Obtém os dados do usuário logado.
+         *
+         * @param callback O objeto UsuarioCallback para receber os resultados da operação.
+         */
         fun obterUsuarioLogado(callback: UsuarioCallback){
             db
                 .collection(ConstantesFB.ALUNOS)
@@ -83,6 +98,12 @@ class SearchData {
                 }
         }
 
+        /**
+         * Obtém a lista de disciplinas de uma universidade específica.
+         *
+         * @param universidade A referência da universidade.
+         * @param callback O objeto DisciplinasCallback para receber os resultados da operação.
+         */
         fun obterDisciplinas(universidade: DocumentReference, callback : DisciplinasCallback) {
             universidade
                 .collection(ConstantesFB.DISCIPLINAS)
@@ -105,6 +126,12 @@ class SearchData {
                 }
         }
 
+        /**
+         * Obtém a lista de disciplinas cursadas pelo aluno.
+         *
+         * @param aluno O objeto Usuario que representa o aluno.
+         * @param callback O objeto DisciplinasCallback para receber os resultados da operação.
+         */
         fun obterDisciplinasCursadas(aluno : Usuario, callback : DisciplinasCallback) {
             aluno.universidade!!
                 .collection(ConstantesFB.DISCIPLINAS)
@@ -130,6 +157,12 @@ class SearchData {
                 }
         }
 
+        /**
+         * Obtém a lista de disciplinas não cursadas pelo aluno.
+         *
+         * @param aluno O objeto Usuario que representa o aluno.
+         * @param callback O objeto DisciplinasCallback para receber os resultados da operação.
+         */
         fun obterDisciplinasNaoCursadas(aluno : Usuario, callback : DisciplinasCallback) {
             aluno.universidade!!
                 .collection(ConstantesFB.DISCIPLINAS)
@@ -155,6 +188,12 @@ class SearchData {
                 }
         }
 
+        /**
+         * Obtém a lista de solicitações de uma universidade específica.
+         *
+         * @param universidade A referência da universidade.
+         * @param callback O objeto SolicitacaoCallback para receber os resultados da operação.
+         */
         fun obterSolicitacoes(universidade: DocumentReference, callback: SolicitacaoCallback){
             universidade
                 .collection(ConstantesFB.SOLICITACOES)

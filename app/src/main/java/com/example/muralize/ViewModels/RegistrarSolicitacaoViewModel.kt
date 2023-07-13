@@ -12,12 +12,14 @@ import com.example.muralize.Utils.UtilMethods
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
+/**
+ * ViewModel responsável por registrar uma nova solicitação.
+ *
+ * @param application A instância da aplicação.
+ */
 class RegistrarSolicitacaoViewModel(application : Application) : AndroidViewModel(application) {
     @SuppressLint("StaticFieldLeak")
-    private val context = application.applicationContext
-    private val db = FirebaseFirestore.getInstance()
 
-    // Variáveis de observação da viewModel
     private var _registroSolicitacao = MutableLiveData<Boolean>()
     val registroSolicitacao: MutableLiveData<Boolean>
         get() = _registroSolicitacao
@@ -26,6 +28,13 @@ class RegistrarSolicitacaoViewModel(application : Application) : AndroidViewMode
     val failureregistroSolicitacao: MutableLiveData<String>
         get() = _failureregistroSolicitacao
 
+    /**
+     * Registra uma nova solicitação.
+     *
+     * @param aluno O objeto Usuario representando o aluno que está fazendo a solicitação.
+     * @param disciplina A referência da disciplina para a qual a solicitação está sendo feita.
+     * @param descricao A descrição da solicitação.
+     */
     fun solicitar(aluno : Usuario, disciplina : DocumentReference, descricao : String){
         val solicitacao = Solicitacao(disciplina, aluno.documento, UtilMethods.getCurrentTimestamp(), descricao)
         SaveData.registrarSolicitacao(aluno, solicitacao, object : RegistrarSolicitacaoCallback{

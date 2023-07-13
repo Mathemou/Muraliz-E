@@ -11,14 +11,15 @@ import com.example.muralize.Utils.PopUpMethods
 import com.example.muralize.ViewModels.LoginViewModel
 import com.example.muralize.databinding.ActivityLoginBinding
 
+/**
+ * Activity responsável por exibir a tela de login do usuário e realizar a autenticação.
+ */
 class Login : AppCompatActivity() {
-// binding para acessar os componentes
 private  lateinit var binding: ActivityLoginBinding
 private lateinit var mLoginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // infla o binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mLoginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
@@ -83,6 +84,14 @@ private lateinit var mLoginViewModel: LoginViewModel
     private fun abreTelaMenu() {
         val intent = Intent(this, MenuInicial::class.java)
         startActivity(intent)
+    }
+
+    /**
+     * Sobrescreve o método onBackPressed() da AppCompatActivity.
+     * Este método é chamado quando o botão "Voltar" é pressionado.
+     */
+    override fun onBackPressed() {
+
     }
 
 }

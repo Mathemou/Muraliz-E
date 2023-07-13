@@ -23,6 +23,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import io.grpc.okhttp.internal.Util
 
+/**
+ * Activity responsável pelo cadastro de um aluno.
+ */
 class CadastroAluno : AppCompatActivity() {
     private lateinit var binding : ActivityCadastroAlunoBinding
     private lateinit var mUniversidadesViewModel : ObterUniversidadesViewModel
@@ -71,6 +74,9 @@ class CadastroAluno : AppCompatActivity() {
         }
     }
 
+    /**
+     * Observa as mudanças nas MutableLiveData e atualiza a UI de acordo.
+     */
     private fun observe() {
         mUniversidadesViewModel.universidades.observe(this){
             listaDeUniversidades = it
@@ -112,6 +118,9 @@ class CadastroAluno : AppCompatActivity() {
                 PopUpMethods.toastLong(this, "Sucesso ao cadastrar!")
                 super.onBackPressed()
             }
+        }
+        mCadastroAlunosViewModel.failureUserRegistration.observe(this){
+            PopUpMethods.toastLong(this, "Falha ao cadastrar usuário")
         }
     }
 }

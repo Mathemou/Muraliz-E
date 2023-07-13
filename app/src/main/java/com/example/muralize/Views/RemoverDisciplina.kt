@@ -17,6 +17,9 @@ import com.example.muralize.ViewModels.RemoverDisciplinasViewModel
 import com.example.muralize.databinding.ActivityListaDisciplinasBinding
 import com.example.muralize.databinding.ActivityRemoverDisciplinaBinding
 
+/**
+ * Classe responsável por exibir a tela de remoção de disciplina.
+ */
 class RemoverDisciplina : AppCompatActivity() {
     private lateinit var binding : ActivityRemoverDisciplinaBinding
     private lateinit var mDisciplinasViewModel : ObterDisciplinasViewModel
@@ -35,8 +38,9 @@ class RemoverDisciplina : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-
-
+    /**
+     * Configura os observadores para atualizações relacionadas aos dados do usuário e às disciplinas.
+     */
     fun observe(){
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
             mDisciplinasViewModel.obterDisciplinasCursadas(usuario)

@@ -11,12 +11,14 @@ import com.example.muralize.Data.SaveData
 import com.example.muralize.Data.UpdateData
 import com.google.firebase.firestore.FirebaseFirestore
 
+/**
+ * ViewModel responsável por remover uma disciplina.
+ *
+ * @param application A instância da aplicação.
+ */
 class RemoverDisciplinasViewModel(application : Application) : AndroidViewModel(application) {
     @SuppressLint("StaticFieldLeak")
-    private val context = application.applicationContext
-    private val db = FirebaseFirestore.getInstance()
 
-    // Variáveis de observação da viewModel
     private var _removerDisciplina = MutableLiveData<Disciplina>()
     val removerDisciplina: MutableLiveData<Disciplina>
         get() = _removerDisciplina
@@ -25,6 +27,11 @@ class RemoverDisciplinasViewModel(application : Application) : AndroidViewModel(
     val failureRemoverDisciplina: MutableLiveData<String>
         get() = _failureRemoverDisciplina
 
+    /**
+     * Remove uma disciplina.
+     *
+     * @param disciplina A disciplina a ser removida.
+     */
     fun remover(disciplina : Disciplina) {
         UpdateData.removerDisciplina(disciplina.documento!!, object : RemoverDisciplinaCallback {
             override fun onSuccess(result: Boolean) {

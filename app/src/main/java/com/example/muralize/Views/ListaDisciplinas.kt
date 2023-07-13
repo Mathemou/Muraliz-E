@@ -15,6 +15,9 @@ import com.example.muralize.ViewModels.ObterDadosUsuarioViewModel
 import com.example.muralize.ViewModels.ObterDisciplinasViewModel
 import com.example.muralize.databinding.ActivityListaDisciplinasBinding
 
+/**
+ * Activity responsável por exibir uma lista de disciplinas e permitir ao usuário adicionar disciplinas não cursadas.
+ */
 class ListaDisciplinas : AppCompatActivity() {
     private lateinit var binding : ActivityListaDisciplinasBinding
     private lateinit var mDisciplinasViewModel : ObterDisciplinasViewModel
@@ -33,8 +36,9 @@ class ListaDisciplinas : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-
-
+    /**
+     * Observa as mudanças nas MutableLiveData e atualiza a UI de acordo.
+     */
     fun observe(){
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
             mDisciplinasViewModel.obterDisciplinasNaoCursadas(usuario)

@@ -13,6 +13,11 @@ import com.example.muralize.Data.UsuarioCallback
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.QuerySnapshot
 
+/**
+ * ViewModel responsável por obter a lista de universidades cadastradas.
+ *
+ * @param application A instância da aplicação.
+ */
 @SuppressLint("StaticFieldLeak")
 class ObterUniversidadesViewModel(application : Application) : AndroidViewModel(application) {
     private var _universidades = MutableLiveData<List<Universidade>>()

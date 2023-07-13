@@ -17,6 +17,9 @@ import com.example.muralize.ViewModels.RegistrarSolicitacaoViewModel
 import com.example.muralize.databinding.ActivityCadastroAlunoBinding
 import com.example.muralize.databinding.ActivityRegistrarSolicitacaoBinding
 
+/**
+ * Classe responsável por exibir a tela de registro de solicitação.
+ */
 class RegistrarSolicitacao : AppCompatActivity() {
     private lateinit var binding : ActivityRegistrarSolicitacaoBinding
     private lateinit var mObterDadosUsuarioViewModel: ObterDadosUsuarioViewModel
@@ -48,6 +51,9 @@ class RegistrarSolicitacao : AppCompatActivity() {
         }
     }
 
+    /**
+     * Configura os observadores para atualizações relacionadas aos dados do usuário e às disciplinas.
+     */
     private fun observe() {
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
             aluno = usuario
