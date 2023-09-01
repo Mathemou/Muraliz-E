@@ -71,6 +71,7 @@ class SolicitacoesAdapter(val listaSolicitacoes: MutableList<Solicitacao>) : Rec
                         val intent = Intent(itemView.context, SolicitacaoExpandida::class.java)
                         intent.putExtra("DescricaoSolicitacao", solicitacao.descricao)
                         intent.putExtra("NomeDisciplina", disciplina.nome)
+                        intent.putStringArrayListExtra("ListaImagens", ArrayList(solicitacao.imagens))
                         intent.putExtra("NomeAluno", aluno.toObject(Usuario::class.java)!!.nome)
                         intent.putExtra("TelefoneAluno", aluno.toObject(Usuario::class.java)!!.telefone)
                         itemView.context.startActivity(intent)

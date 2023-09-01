@@ -107,36 +107,40 @@ class SaveData {
                     val solicitacaoId = it.id
                     val uploadTasks: MutableList<UploadTask> = mutableListOf()
                     val imagensUrls: MutableList<String> = mutableListOf() // Lista para armazenar as URLs das imagens
+                    if(listaImagens.isEmpty()){ // Se a lista de imagens estiver vazia, já envia a solicitação
+                        callback.onSuccess(true)
+                    } else { // Se tiver imagens, envia as imagens antes de confirmar
+                        for ((index, imagemUri) in listaImagens.withIndex()) {
+                            val imagemRef = storage.getReference("imagens")
+                                .child("imagens/$solicitacaoId/imagem_$index.png")
+                            val uploadTask = imagemRef.putFile(imagemUri)
+                            uploadTasks.add(uploadTask)
 
-                    for ((index, imagemUri) in listaImagens.withIndex()) {
-                        val imagemRef = storage.getReference("imagens").child("imagens/$solicitacaoId/imagem_$index.png")
-                        val uploadTask = imagemRef.putFile(imagemUri)
-                        uploadTasks.add(uploadTask)
+                            // Obtém a URL da imagem após o upload
+                            uploadTask.addOnSuccessListener { taskSnapshot ->
 
-                        // Obtém a URL da imagem após o upload
-                        uploadTask.addOnSuccessListener { taskSnapshot ->
+                                taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
+                                    imagensUrls.add(uri.toString())
 
-                            taskSnapshot.storage.downloadUrl.addOnSuccessListener { uri ->
-                                imagensUrls.add(uri.toString())
-
-                                // Verifica se todas as URLs das imagens foram obtidas
-                                if (imagensUrls.size == listaImagens.size) {
-                                    // Atualiza o documento da solicitação com as URLs das imagens
+                                    // Verifica se todas as URLs das imagens foram obtidas
+                                    if (imagensUrls.size == listaImagens.size) {
+                                        // Atualiza o documento da solicitação com as URLs das imagens
                                         it
-                                        .update("imagens", imagensUrls)
-                                        .addOnSuccessListener {
-                                            callback.onSuccess(true)
-                                        }
-                                        .addOnFailureListener { error ->
-                                            Log.d("Image", error.toString())
-                                            callback.onFailure(error.message.toString())
-                                        }
+                                            .update("imagens", imagensUrls)
+                                            .addOnSuccessListener {
+                                                callback.onSuccess(true)
+                                            }
+                                            .addOnFailureListener { error ->
+                                                Log.d("Image", error.toString())
+                                                callback.onFailure(error.message.toString())
+                                            }
+                                    }
                                 }
                             }
+                                .addOnFailureListener {
+                                    Log.d("Image", it.toString())
+                                }
                         }
-                            .addOnFailureListener{
-                                Log.d("Image", it.toString())
-                            }
                     }
 
                 }.addOnFailureListener { error ->

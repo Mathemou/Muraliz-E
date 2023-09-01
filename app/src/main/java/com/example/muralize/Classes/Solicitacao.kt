@@ -1,5 +1,6 @@
 package com.example.muralize.Classes
 
+import android.net.Uri
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 
@@ -19,5 +20,6 @@ data class Solicitacao (
     val data : Timestamp? = null,
     val descricao : String = "",
     var documento : DocumentReference? = null,
-    var resolvida : Boolean = false
+    var resolvida : Boolean = false,
+    var imagens : List<String> = listOf()
 )

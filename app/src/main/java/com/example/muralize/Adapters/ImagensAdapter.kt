@@ -36,5 +36,16 @@ class ImagensAdapter(val context : Context, val listaImagens: MutableList<Uri>) 
         val cardView: CardView = itemView.findViewById<CardView>(R.id.card_view_image_solicitacao)
         val imageView: ImageView = itemView.findViewById<ImageView>(R.id.imageview_solicitacoes)
         val removeImage : ImageView = itemView.findViewById<ImageView>(R.id.imageview_remove_image_solicitacoes)
+        init {
+            removeImage.setOnClickListener{
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    // Remova a imagem da lista de imagens na posição correspondente
+                    listaImagens.removeAt(position)
+                    // Notifique o adaptador sobre a remoção do item
+                    notifyItemRemoved(position)
+                }
+            }
+        }
     }
 }

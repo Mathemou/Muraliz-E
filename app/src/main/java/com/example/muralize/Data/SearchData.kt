@@ -1,6 +1,7 @@
 package com.example.muralize.Data
 
 import android.annotation.SuppressLint
+import android.util.Log
 import com.example.muralize.Classes.*
 import com.example.muralize.Constants.ConstantesFB
 import com.example.muralize.Utils.UtilMethods
@@ -206,7 +207,6 @@ class SearchData {
                         if(solicitacao != null){
                             solicitacao.documento = document.reference
                             solicitacoes.add(solicitacao)
-
                         }
 
                     }
