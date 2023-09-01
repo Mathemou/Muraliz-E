@@ -33,4 +33,6 @@
     <string name="resolvida">Resolvida</string>
     <string name="remover_disciplinas">REMOVER\nDISCIPLINAS</string>
     <string name="preencha_a_solicitacao">Preencha a disciplina e a descrição da sua solicitação</string>
+    <string name="imagem_de_solicita_o">imagem de solicitação</string>
+    <string name="adiconar_imagem">Adiconar imagem</string>
 </resources>

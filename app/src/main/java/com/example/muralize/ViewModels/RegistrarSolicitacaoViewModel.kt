@@ -2,6 +2,7 @@ package com.example.muralize.ViewModels
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.muralize.Classes.Solicitacao
@@ -33,11 +34,12 @@ class RegistrarSolicitacaoViewModel(application : Application) : AndroidViewMode
      *
      * @param aluno O objeto Usuario representando o aluno que está fazendo a solicitação.
      * @param disciplina A referência da disciplina para a qual a solicitação está sendo feita.
+     * @param listaImagens As imagens referentes a solicitação
      * @param descricao A descrição da solicitação.
      */
-    fun solicitar(aluno : Usuario, disciplina : DocumentReference, descricao : String){
+    fun solicitar(aluno : Usuario, disciplina : DocumentReference, descricao : String, listaImagens : MutableList<Uri>){
         val solicitacao = Solicitacao(disciplina, aluno.documento, UtilMethods.getCurrentTimestamp(), descricao)
-        SaveData.registrarSolicitacao(aluno, solicitacao, object : RegistrarSolicitacaoCallback{
+        SaveData.registrarSolicitacao(aluno, solicitacao, listaImagens, object : RegistrarSolicitacaoCallback{
             override fun onSuccess(result: Boolean) {
                 if(result) {
                     _registroSolicitacao.value = true
