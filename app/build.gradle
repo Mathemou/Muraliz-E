@@ -30,16 +30,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding{
+    viewBinding {
         enabled = true
     }
+
+
 }
 
 dependencies {
-
-    //noinspection GradleDependency
     implementation 'androidx.core:core-ktx:1.7.0'
-    //noinspection GradleDependency
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -50,6 +49,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation platform('com.google.firebase:firebase-bom:32.1.0')
     implementation 'com.google.firebase:firebase-firestore-ktx'
+
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.1.1"))
 
@@ -57,7 +57,8 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-auth-ktx")
 
-    implementation 'com.github.bumptech.glide:glide:4.14.2' // Substitua pela versão mais recente do Glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
 
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
 }

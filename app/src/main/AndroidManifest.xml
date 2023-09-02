@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MuralizE"
         tools:targetApi="31">
         <activity
+            android:name=".Views.ImagemExpandida"
+            android:exported="false" />
+        <activity
             android:name=".Views.RemoverDisciplina"
             android:exported="false" />
         <activity
