@@ -55,14 +55,24 @@
 
             </View>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/borda_cinza"
+                android:orientation="vertical">
+
             <TextView
                 android:id="@+id/descricao_solicitacao_expandida"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                tools:layout_editor_absoluteX="169dp"
-                tools:layout_editor_absoluteY="151dp" />
-            <View
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:padding="12dp"
+                android:gravity="start"
+            />
+        </LinearLayout>
+
+        <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/light_gray">

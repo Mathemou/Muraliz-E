@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.muralize.Adapters.SolicitacoesAdapter
+import com.example.muralize.Classes.Usuario
 import com.example.muralize.Utils.PopUpMethods
 import com.example.muralize.Utils.SessionManager
 import com.example.muralize.ViewModels.ObterDadosUsuarioViewModel
@@ -69,10 +70,9 @@ class MenuInicial : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun observe() {
         mObterDadosUsuarioViewModel.currentUser.observe(this){ usuario ->
-            val primeiroNome = if (usuario.nome.contains(" ")) usuario.nome.split(" ")[0] else usuario.nome
             sessionManager.salvarNomeUsuario(usuario.nome)
             sessionManager.salvarTelefone(usuario.telefone)
-            binding.mensagemDeBoasVindas.text = "Bem-vindo, " + primeiroNome
+            binding.mensagemDeBoasVindas.text = "Bem-vindo, " + primeiroNome(usuario)
             mObterSolicitacoesViewModel.obterSolicitacoesCompativeis(usuario)
         }
         mObterSolicitacoesViewModel.solicitacoes.observe(this){ solicitacoes ->
@@ -99,6 +99,19 @@ class MenuInicial : AppCompatActivity() {
             .setNegativeButton("Não", null)
             .create()
         alertDialog.show()
+    }
+
+    /** Retorna o primeiro nome de um usuário com base no seu nome completo.
+    *
+    * Esta função recebe um objeto [usuario] do tipo [Usuario] e verifica se o nome do usuário
+    * contém um espaço em branco. Se o nome contiver um espaço em branco, ele será dividido em partes
+    * com base no espaço e o primeiro nome será retornado. Caso contrário, o nome completo será retornado.
+    *
+    * @param usuario O objeto [Usuario] cujo primeiro nome deve ser extraído.
+    * @return O primeiro nome do usuário, ou o nome completo se não houver espaço em branco.
+    */
+    fun primeiroNome(usuario : Usuario) : String{
+        if (usuario.nome.contains(" ")) return usuario.nome.split(" ")[0] else return usuario.nome
     }
 
 }
